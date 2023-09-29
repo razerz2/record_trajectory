@@ -31,6 +31,12 @@ Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'admin'], function () {
         // Rotas que requerem permissão de administrador
         Route::get('/dashboard', 'HomeAdminController@index')->name('admin.dashboard');
+
+        Route::resource('usuarios', 'UserController');
+        Route::get('/editPassword/{id}', 'UserController@editPassword')->name('usuarios.editPassword');
+        Route::post('/EditarPassword/{id}', 'userController@updatePassword')->name('usuarios.changePassword');
+        Route::post('/desativar/{id}', 'UserController@disableUser')->name('usuarios.desativar');
+
     });
 });
 
