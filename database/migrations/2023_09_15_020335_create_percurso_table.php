@@ -20,7 +20,7 @@ class CreatePercursoTable extends Migration
             $table->integer('km_inicial');
             $table->integer('km_final');
             $table->integer('km_percorrido');
-            $table->string('observacao');
+            $table->string('observacao')->nullable();
             $table->timestamp('data_registro')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('veiculo_id')->references('id_veiculo')->on('veiculo');

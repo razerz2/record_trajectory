@@ -33,20 +33,31 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{route('usuarios.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('usuarios.store') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="card-body">
+                                    @if ($errors->any())
+                                        <ul class="alert alert-danger">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Nome de Exibição:</label>
-                                                <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="Digite o nome de exibição do usuário..." required>
+                                                <input type="text" class="form-control" value="{{ old('name') }}"
+                                                    name="name" placeholder="Digite o nome de exibição do usuário..."
+                                                    required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Nome Completo:</label>
-                                                <input type="text" class="form-control" value="{{old('name_full')}}" name="name_full" placeholder="Digite o nome completo do usuário..." required>
+                                                <input type="text" class="form-control" value="{{ old('name_full') }}"
+                                                    name="name_full" placeholder="Digite o nome completo do usuário..."
+                                                    required>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +65,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Endereço de Email</label>
-                                                <input type="email" class="form-control" value="{{old('email')}}" name="email" placeholder="Digite o e-mail do usuário..." required>
+                                                <input type="email" class="form-control" value="{{ old('email') }}"
+                                                    name="email" placeholder="Digite o e-mail do usuário..." required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -71,13 +83,16 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" value="{{old('password')}}" name="password" placeholder="Digite a senha..." required>
+                                                <input type="password" class="form-control" value="{{ old('password') }}"
+                                                    name="password" placeholder="Digite a senha..." required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Confirmar Password</label>
-                                                <input type="password" class="form-control" value="{{old('password_confirm')}}" name="password_confirm" placeholder="Confirme a senha..." required>
+                                                <input type="password" class="form-control"
+                                                    value="{{ old('password_confirm') }}" name="password_confirmation"
+                                                    placeholder="Confirme a senha..." required>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +103,8 @@
                                                 <div class="input-group">
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input" name="InputFile">
-                                                        <label class="custom-file-label" for="exampleInputFile">Buscar arquivo...</label>
+                                                        <label class="custom-file-label" for="exampleInputFile">Buscar
+                                                            arquivo...</label>
                                                     </div>
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">Upload</span>

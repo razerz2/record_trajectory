@@ -32,6 +32,13 @@
                             <div class="card-header">
                                 <h3 class="card-title">Editar</h3>
                             </div>
+                            @if ($errors->any())
+                                        <ul class="alert alert-danger">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form action="{{ route('usuarios.update', ['usuario' => $usuario->id]) }}" method="post"

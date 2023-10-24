@@ -9,6 +9,7 @@ class gastos extends Model
     protected $fillable = [
         'user_id',
         'veiculo_id',
+        'tipo_gastos',
         'valor',
         'descricao',
         'litros',

@@ -88,11 +88,11 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                         aria-hidden="true">&times;</span></button>
                             </div>
-                            <form action="{{ route('usuarios.desativar', ['usuario' => $usuario->id]) }}" method="POST">
+                            <form action="{{ route('usuarios.desativar') }}" method="POST">
                                 {{ csrf_field() }}
                                 <div class="modal-body">
                                     <p class="text-center">
-                                        Tem certeza de que deseja excluir "<span id="info-name"></span>"?
+                                        Tem certeza de que deseja desativar "<span id="info-name"></span>"?
                                     </p>
                                     <input type="hidden" name="id_usuario" id="id_usuario" value="">
 
@@ -105,37 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    $(function() {
-                        $("#sua-tabela").DataTable({
-                            "responsive": true,
-                            "lengthChange": false,
-                            "autoWidth": false,
-                            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                            "paging": true,
-                            "lengthChange": false,
-                            "searching": false,
-                            "ordering": true,
-                            "info": true,
-                            "autoWidth": false,
-                            "responsive": true,
-                        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-                        $('#sua-tabela').DataTable({
-                            "paging": true,
-                            "lengthChange": false,
-                            "searching": false,
-                            "ordering": true,
-                            "info": true,
-                            "autoWidth": false,
-                            "responsive": true,
-                        });
-                    });
-
-                    function deletar_modal(id_usuario, nome_usuario) {
-                        document.getElementById('id_usuario').value = id_usuario;
-                        document.getElementById('info-name').innerText = nome_usuario;
-                    };
-                </script>
+                <script src="{{asset('js/admin/users/listar.js')}}"></script>
                 <!-- /.row -->
             </div><!--/. container-fluid -->
         </section>

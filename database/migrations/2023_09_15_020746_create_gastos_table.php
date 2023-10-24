@@ -17,9 +17,11 @@ class CreateGastosTable extends Migration
             $table->bigIncrements('id_gasto');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('veiculo_id');
+            $table->string('tipo_gastos');
             $table->float('valor');
             $table->string('descricao');
-            $table->double('litros');
+            $table->float('litros');
+            $table->timestamp('data_registro');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('veiculo_id')->references('id_veiculo')->on('veiculo');
         });

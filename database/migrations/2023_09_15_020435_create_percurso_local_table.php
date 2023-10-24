@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLocalPercursoTable extends Migration
+class CreatePercursoLocalTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateLocalPercursoTable extends Migration
      */
     public function up()
     {
-        Schema::create('local_percurso', function (Blueprint $table) {
-            $table->bigIncrements('id_lp');
+        Schema::create('percurso_local', function (Blueprint $table) {
             $table->unsignedInteger('percurso_id');
             $table->unsignedInteger('local_id');
+            $table->integer('order');
             $table->foreign('percurso_id')->references('id_percurso')->on('percurso');
             $table->foreign('local_id')->references('id_local')->on('locais');
             
@@ -30,6 +30,6 @@ class CreateLocalPercursoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('local_percurso');
+        Schema::dropIfExists('percurso_local');
     }
 }

@@ -19,8 +19,8 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h2"><b>Record </b>Trajectory</a>
-      <a href="#" class="h5">Colaboradores</a>
+      <a href="#" class="h2"><b>Record </b>Trajectory</a><br>
+      <a href="#" class="h6">Registro de Trajetos</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -47,7 +49,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\UsersRequest $request)
     {
         $data = $request->all();
         $data['password'] = Hash::make($data['password']);
@@ -59,7 +61,7 @@ class UserController extends Controller
         $data['status'] = 'ativo';
         $recovery = User::create($data);
 
-        return redirect()->route('admin.index');
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -86,8 +88,6 @@ class UserController extends Controller
         }
 
         return view('admin.users.editar', compact('usuario'));
-
-        //return dd($usuario);
     }
 
     /**
@@ -113,7 +113,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\UsersEditRequest $request, $id)
     {
         if(!($usuario = User::find($id))){
             throw new ModelNotFoundException("Usuário não foi encontrado!");
@@ -122,7 +122,7 @@ class UserController extends Controller
         $usuario->fill($data);
         $usuario->save();
 
-        return redirect()->route('admin.index');
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -132,7 +132,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updatePassword(Request $request, $id)
+    public function updatePassword(Requests\UsersEditPassRequest $request, $id)
     {
         if(!($usuario = User::find($id))){
             throw new ModelNotFoundException("Usuário não foi encontrado!");
@@ -146,7 +146,7 @@ class UserController extends Controller
         return redirect()->route('usuarios.index');
     }
 
-    public function disableUser(Request $request)
+    public function desativar(Request $request)
     {
         $id = $request->id_usuario;
         

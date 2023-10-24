@@ -21,4 +21,14 @@ class veiculo extends Model
     protected $primaryKey = 'id_veiculo';
 
     protected $table = 'veiculo';
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_veiculo', 'veiculo_id', 'user_id');
+    }
+
+    public function userVeiculos()
+    {
+        return $this->hasMany(userVeiculo::class, 'veiculo_id');
+    }
 }

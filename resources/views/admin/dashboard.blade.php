@@ -35,15 +35,21 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('veiculos.create')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Cadastrar</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('veiculos.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Listar</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('userVeiculos.create')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Associar Veículo</p>
             </a>
           </li>
         </ul>
@@ -59,13 +65,13 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('locais.create')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Cadastrar</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('locais.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Listar</p>
             </a>
@@ -83,13 +89,13 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('percursos.create')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Cadastrar</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('percursos.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Listar</p>
             </a>
@@ -107,13 +113,13 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('gastos.create')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Cadastrar</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('gastos.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Listar</p>
             </a>

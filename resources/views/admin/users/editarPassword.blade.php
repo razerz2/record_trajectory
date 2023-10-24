@@ -59,7 +59,7 @@
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Password Confirm:</label>
                                                 <input type="password" class="form-control" value=""
-                                                    name="password_confirm" placeholder="Confirme a sua senha..." required>
+                                                    name="password_confirmation" placeholder="Confirme a sua senha..." required>
                                             </div>
                                         </div>
                                     </div>
