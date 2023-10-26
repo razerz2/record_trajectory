@@ -19,6 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $usuarios = User::where('status', '=', 'ativo')->get();
+        
         return view('admin.users.lista', compact('usuarios'));
     }
 
@@ -30,7 +31,8 @@ class UserController extends Controller
     public function indexInativos()
     {
         $usuarios = User::where('status', '=', 'inativo')->get();
-        return view('admin.users.lista', compact('usuarios'));
+
+        return view('admin.users.listaInativos', compact('usuarios'));
     }
 
     /**
@@ -155,6 +157,21 @@ class UserController extends Controller
         }
         $data = $request->all();
         $data['status'] = 'inativo';
+        $usuario->fill($data);
+        $usuario->save();
+
+        return redirect()->route('usuarios.index');
+    }
+
+    public function ativar(Request $request)
+    {
+        $id = $request->id_usuario;
+        
+        if(!($usuario = User::find($id))){
+            throw new ModelNotFoundException("Usuário não foi encontrado!");
+        }
+        $data = $request->all();
+        $data['status'] = 'ativo';
         $usuario->fill($data);
         $usuario->save();
 

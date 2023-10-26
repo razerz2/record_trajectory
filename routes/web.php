@@ -39,15 +39,19 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', 'HomeAdminController@index')->name('admin.dashboard');
         // Rotas  de Administrador sobre Usuário...
         Route::resource('usuarios', 'UserController');
+        Route::get('/usuario/inativos/', 'UserController@indexInativos')->name('usuarios.inativos');
         Route::get('/usuario/editPassword/{id}', 'UserController@editPassword')->name('usuarios.editPassword');
         Route::post('/usuario/EditarPassword/{id}', 'userController@updatePassword')->name('usuarios.changePassword');
         Route::post('/usuario/desativar/', 'UserController@desativar')->name('usuarios.desativar');
+        Route::post('/usuario/ativar/', 'UserController@ativar')->name('usuarios.ativar');
         // Rotas de Administrador sobre Veículos...
         Route::resource('veiculos', 'VeiculoController');
+        Route::get('/veiculo/inativos/', 'VeiculoController@indexInativos')->name('veiculos.inativos');
         Route::resource('userVeiculos', 'UserVeiculoController');
         Route::get('getVeiculosForUser/{user_id}', 'UserVeiculoController@getVeiculosForUser')->name('getVeiculosForUser');
         Route::get('getVeiculosNotAssociados/{user_id}', 'UserVeiculoController@getVeiculosNotAssociados')->name('getVeiculosNotAssociados');
         Route::post('/veiculos/desativar/', 'VeiculoController@desativar')->name('veiculos.desativar');
+        Route::post('/veiculos/ativar/', 'VeiculoController@ativar')->name('veiculos.ativar');
         // Rotas de Administrador sobre Locais...
         Route::resource('locais', 'locaisController');
         Route::get('getCidades/{estado_id}', 'CidadesController@getCidades')->name('getCidades');
@@ -55,7 +59,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('percursos', 'PercursoController');
         // Rotas de Administrador sobre gastos...
         Route::resource('gastos', 'GastosController');
-
+        
     });
 });
 

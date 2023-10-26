@@ -22,6 +22,12 @@
               <p>Listar</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('usuarios.inativos')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Listar Inativos</p>
+            </a>
+          </li>
         </ul>
       </li>
       <!-- Menu Veículos -->
@@ -44,6 +50,12 @@
             <a href="{{route('veiculos.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Listar</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('veiculos.inativos')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Listar Inativos</p>
             </a>
           </li>
           <li class="nav-item">

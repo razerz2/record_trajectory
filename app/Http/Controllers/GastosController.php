@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\gastos;
 use App\User;
+use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -44,7 +45,7 @@ class GastosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\GastosRequest $request)
     {
         $data = $request->all();
 

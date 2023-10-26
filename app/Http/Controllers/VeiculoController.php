@@ -24,7 +24,7 @@ class VeiculoController extends Controller
     public function indexInativos()
     {
         $veiculos = veiculo::where('status', '=', 'inativo')->get();
-        return view('admin.veiculos.lista', compact('veiculos'));
+        return view('admin.veiculos.listaInativos', compact('veiculos'));
     }
 
     /**
@@ -109,6 +109,23 @@ class VeiculoController extends Controller
         }
         $data = $request->all();
         $data['status'] = 'inativo';
+        $veiculo->fill($data);
+        $veiculo->save();
+
+        return redirect()->route('veiculos.index');
+        
+    }
+
+    public function ativar(Request $request)
+    {
+        
+        $id = $request->id_veiculo;
+        
+        if(!($veiculo = veiculo::find($id))){
+            throw new ModelNotFoundException("Veículo não foi encontrado!");
+        }
+        $data = $request->all();
+        $data['status'] = 'ativo';
         $veiculo->fill($data);
         $veiculo->save();
 

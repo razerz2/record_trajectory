@@ -52,7 +52,7 @@
 
                             <div class="info-box-content">
                                 <span class="info-box-text">KM's Percorrido</span>
-                                <span class="info-box-number">{{ $data['soma_km'] }} KM's</span>
+                                <span class="info-box-number">{{ number_format($data['soma_km'], 0, ',', '.') }} KM's</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -114,7 +114,6 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-
                                         </tbody>
                                     </table>
                                 </div>
