@@ -21,10 +21,13 @@ class HomeAdminController extends Controller
         $data['soma_km'] = $this->somaKM();
         $data['soma_gastos'] = $this->somaGastos();
         $data['soma_visitas'] = $this->somaVisitas();
+        $data_grafico = $this->graficoVeiculosKM();
 
         $percursos = $this->ultimosPercursos();
         
-        return view('admin.index', compact('data', 'percursos'));
+        return view('admin.index', compact('data', 'data_grafico', 'percursos'));
+
+        //return dd($data_grafico);
     }
 
     public function qtdUsers()
@@ -85,4 +88,19 @@ class HomeAdminController extends Controller
 
         return $percursos;
     }
+
+    public function graficoVeiculosKM()
+    {
+        $dados = [];
+        $veiculos = DB::table('veiculo')->select('veiculo.*')->get();
+        foreach ($veiculos as $veiculo) {
+            $dados[] = [
+                'label' => $veiculo->modelo,
+                'valor' => (int) DB::table('percurso')->where('veiculo_id', $veiculo->id_veiculo)->sum('km_percorrido')
+            ];
+        }
+
+        return $dados;
+    }
+
 }

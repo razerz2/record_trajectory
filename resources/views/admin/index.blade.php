@@ -178,8 +178,10 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer clearfix">
-                              <a href="{{route('percursos.create')}}" class="btn btn-sm btn-info float-left">Novo Registro</a>
-                              <a href="{{route('percursos.index')}}" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
+                                <a href="{{ route('percursos.create') }}" class="btn btn-sm btn-info float-left">Novo
+                                    Registro</a>
+                                <a href="{{ route('percursos.index') }}" class="btn btn-sm btn-secondary float-right">Ver
+                                    Todos</a>
                             </div>
                             <!-- /.card-footer -->
                         </div>
@@ -213,57 +215,58 @@
                                                     <div class=""></div>
                                                 </div>
                                             </div>
-                                            <canvas id="pieChart" height="167" width="334"
-                                                style="display: block; width: 334px; height: 167px;"
-                                                class="chartjs-render-monitor"></canvas>
+                                            <div style="justify-content: center; align-items: center;">
+                                                <canvas id="graficoPizza"></canvas>
+                                            </div>
+                                            
+                                            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                            <script>
+                                                function corAleatoria() {
+                                                    var letras = '0123456789ABCDEF';
+                                                    var cor = '#';
+                                                    for (var i = 0; i < 6; i++) {
+                                                        cor += letras[Math.floor(Math.random() * 16)];
+                                                    }
+                                                    return cor;
+                                                }
+
+                                                var dados = @json($data_grafico); // Converter os dados do Laravel para JSON
+
+                                                var labels = dados.map(function(item) {
+                                                    return item.label;
+                                                });
+
+                                                var valores = dados.map(function(item) {
+                                                    return item.valor;
+                                                });
+
+                                                var ctx = document.getElementById("graficoPizza").getContext('2d');
+                                                var meuGraficoPizza = new Chart(ctx, {
+                                                    type: 'pie',
+                                                    data: {
+                                                        labels: labels,
+                                                        datasets: [{
+                                                            data: valores,
+                                                            backgroundColor: [
+                                                                '#17a2b8', // Gera uma cor aleatória
+                                                                '#ffc107', 
+                                                                '#dc3545',
+                                                                '#28a745'
+                                                            ]
+                                                        }]
+                                                    },
+                                                    options: {
+                                                        // Configurações opcionais de personalização aqui
+                                                    }
+                                                });
+                                            </script>
                                         </div>
                                         <!-- ./chart-responsive -->
                                     </div>
-                                    <!-- /.col -->
-                                    <div class="col-md-4">
-                                        <ul class="chart-legend clearfix">
-                                            <li><i class="far fa-circle text-danger"></i> Chrome</li>
-                                            <li><i class="far fa-circle text-success"></i> IE</li>
-                                            <li><i class="far fa-circle text-warning"></i> FireFox</li>
-                                            <li><i class="far fa-circle text-info"></i> Safari</li>
-                                            <li><i class="far fa-circle text-primary"></i> Opera</li>
-                                            <li><i class="far fa-circle text-secondary"></i> Navigator</li>
-                                        </ul>
-                                    </div>
-                                    <!-- /.col -->
                                 </div>
                                 <!-- /.row -->
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer p-0">
-                                <ul class="nav nav-pills flex-column">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            United States of America
-                                            <span class="float-right text-danger">
-                                                <i class="fas fa-arrow-down text-sm"></i>
-                                                12%</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            India
-                                            <span class="float-right text-success">
-                                                <i class="fas fa-arrow-up text-sm"></i> 4%
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            China
-                                            <span class="float-right text-warning">
-                                                <i class="fas fa-arrow-left text-sm"></i> 0%
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.footer -->
                         </div>
                         <!-- /.card -->
 
