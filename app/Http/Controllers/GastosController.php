@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\gastos;
 use App\User;
-use App\veiculo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;

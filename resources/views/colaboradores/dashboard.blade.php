@@ -19,7 +19,7 @@
           <li class="nav-item">
             <a href="{{route('trajetos.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar Registros</p>
+              <p>Listar Trajetos</p>
             </a>
           </li>
         </ul>
@@ -29,7 +29,7 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-dollar-sign"></i>
           <p>
-            Gastos
+            Despesas
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
@@ -41,9 +41,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('trajetos.index')}}" class="nav-link">
+            <a href="{{route('despesas.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar Registros</p>
+              <p>Listar Despesas</p>
             </a>
           </li>
         </ul>

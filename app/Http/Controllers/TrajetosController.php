@@ -10,7 +10,6 @@ use App\percursoLocal;
 use App\gastos;
 use App\gastosPercurso;
 use App\Http\Requests;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -113,50 +112,16 @@ class TrajetosController extends Controller
         return view('colaboradores.trajetos.show', compact('percurso', 'locais'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function atualizaKMAtual($id_veiculo, $km_percorrido)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function atualizaKMAtual($id_veiculo, $km_percorrido){
-
         $veiculo = veiculo::find($id_veiculo);
         $veiculo->km_atual = $veiculo->km_atual + $km_percorrido;
         $veiculo->save();
 
     }
 
-    public function atualizaNVisitasLocal($id_local){
-
+    public function atualizaNVisitasLocal($id_local)
+    {
         $local = locais::find($id_local);
         $local->n_visitas = $local->n_visitas + 1;
         $local->save();
@@ -177,7 +142,8 @@ class TrajetosController extends Controller
 
     }
 
-    public function ultimoGastoLançado($id_veiculo){
+    public function ultimoGastoLançado($id_veiculo)
+    {
         $ultimoGasto = gastos::where('veiculo_id', $id_veiculo)
         ->where('tipo_gastos', 'Combustível')
         ->latest('data_registro')
