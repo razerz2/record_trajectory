@@ -57,7 +57,7 @@
                                                     @endif
                                                 </td>
                                                 <td align="center">
-                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-primary"
+                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-primary btn-sm"
                                                         onclick="deletar_modal({{ $usuario->id }}, '{{ $usuario->name }}');">
                                                         <i class="fa fa-trash"></i> Ativar </button>
                                                 </td>

@@ -58,10 +58,10 @@
                                                 </td>
                                                 <td align="center">
                                                     <a href="{{ route('usuarios.edit', ['usuario' => $usuario->id]) }}"
-                                                        class="btn btn-primary"> <i class="fa fa-edit"></i> Editar </a>
+                                                        class="btn btn-primary btn-sm"> <i class="fa fa-edit"></i> Editar </a>
                                                     <a href="{{ route('usuarios.editPassword', ['usuario' => $usuario->id]) }}"
-                                                        class="btn btn-secondary"> <i class="fa-solid fa-key"></i> Change </a>
-                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-danger"
+                                                        class="btn btn-secondary btn-sm"> <i class="fa-solid fa-key"></i> Change </a>
+                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-danger btn-sm"
                                                         onclick="deletar_modal({{ $usuario->id }}, '{{ $usuario->name }}');">
                                                         <i class="fa fa-trash"></i> Desativar </button>
                                                 </td>

@@ -19,7 +19,7 @@
           <li class="nav-item">
             <a href="{{route('trajetos.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar Trajetos</p>
+              <p>Trajetos</p>
             </a>
           </li>
         </ul>
@@ -43,7 +43,7 @@
           <li class="nav-item">
             <a href="{{route('despesas.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar Despesas</p>
+              <p>Despesas</p>
             </a>
           </li>
         </ul>

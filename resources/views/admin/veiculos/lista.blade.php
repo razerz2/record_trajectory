@@ -54,8 +54,8 @@
                                                 <td>{{ $veiculo->km_atual }}</td>
                                                 <td align="center">
                                                     <a href="{{ route('veiculos.edit', ['veiculo' => $veiculo->id_veiculo]) }}"
-                                                        class="btn btn-primary"> <i class="fa fa-edit"></i> Editar </a>
-                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-danger"
+                                                        class="btn btn-primary btn-sm"> <i class="fa fa-edit"></i> Editar </a>
+                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-danger btn-sm"
                                                         onclick="deletar_modal({{ $veiculo->id_veiculo }}, '{{ $veiculo->modelo }}');">
                                                         <i class="fa fa-trash"></i> Desativar </button>
                                                 </td>

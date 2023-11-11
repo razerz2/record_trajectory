@@ -65,8 +65,8 @@
                                                 </td>
                                                 <td align="center">
                                                     <a href="{{ route('percursos.show', ['percursos' => $percurso->id_percurso]) }}"
-                                                        class="btn btn-primary"> <i class="fa fa-eye"></i> Ver </a>
-                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-danger"
+                                                        class="btn btn-primary btn-sm"> <i class="fa fa-eye"></i> Ver </a>
+                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-danger btn-sm"
                                                         onclick="deletar_modal({{ $percurso->id_percurso }}, '{{ $percurso->id_percurso }}');">
                                                         <i class="fa fa-trash"></i> Excluir </button>
 

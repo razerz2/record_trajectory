@@ -19,13 +19,13 @@
           <li class="nav-item">
             <a href="{{route('usuarios.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar</p>
+              <p>Usuários</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('usuarios.inativos')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar Inativos</p>
+              <p>Inativos</p>
             </a>
           </li>
         </ul>
@@ -49,13 +49,13 @@
           <li class="nav-item">
             <a href="{{route('veiculos.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar</p>
+              <p>Veículos</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('veiculos.inativos')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar Inativos</p>
+              <p>Inativos</p>
             </a>
           </li>
           <li class="nav-item">
@@ -85,7 +85,7 @@
           <li class="nav-item">
             <a href="{{route('locais.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar</p>
+              <p>Locais</p>
             </a>
           </li>
         </ul>
@@ -109,7 +109,7 @@
           <li class="nav-item">
             <a href="{{route('percursos.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar</p>
+              <p>Trajetos</p>
             </a>
           </li>
         </ul>
@@ -119,7 +119,7 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-dollar-sign"></i>
           <p>
-            Gastos
+            Despesas
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
@@ -133,7 +133,7 @@
           <li class="nav-item">
             <a href="{{route('gastos.index')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Listar</p>
+              <p>Despesas</p>
             </a>
           </li>
         </ul>
@@ -174,7 +174,7 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-hand-holding-dollar"></i>
           <p>
-            Gastos por Veículos
+            Despesas por Veículos
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
@@ -228,55 +228,6 @@
             </a>
           </li>
         </ul>
-      </li>
-      <li class="nav-header">Alertas</li>
-      <!-- Alerta de Troca de Óleo -->
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-oil-can"></i>
-          <p>
-             Troca do Óleo
-             <i class="fas fa-angle-left right"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Cadastrar</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Listar</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <!-- Alerta de Manutenção -->
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-screwdriver-wrench"></i>
-          <p>
-            Manutenção
-            <i class="fas fa-angle-left right"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Cadastrar</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Listar</p>
-            </a>
-          </li>
-        </ul>
-      </li>         
+      </li>      
     </ul>
   </nav>

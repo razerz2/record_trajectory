@@ -33,28 +33,39 @@
                                 <h3 class="card-title">Editar</h3>
                             </div>
                             @if ($errors->any())
+                                <ul class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form id="userForm" action="{{ route('usuarios.update', ['usuario' => $usuario->id]) }}" method="post"
+                                enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                {{ method_field('PUT') }}
+                                <div class="card-body">
+                                    @if ($errors->any())
                                         <ul class="alert alert-danger">
                                             @foreach ($errors->all() as $error)
                                                 <li>{{ $error }}</li>
                                             @endforeach
                                         </ul>
                                     @endif
-                            <!-- /.card-header -->
-                            <!-- form start -->
-                            <form action="{{ route('usuarios.update', ['usuario' => $usuario->id]) }}" method="post"
-                                enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                {{ method_field('PUT') }}
-                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            @if ($errors->any())
-                                                <ul class="alert alert-danger">
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            @endif
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Foto de Perfil:</label>
+                                                <div id="imageContainer" style="width: 150px; height: 150px;">
+                                                    <img src="{{ asset('storage/images/ft' . $usuario->id . '.jpg') }}"
+                                                        style="width: 150px; height: 150px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Nome de Exibição:</label>
                                                 <input type="text" class="form-control"
@@ -93,24 +104,63 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="exampleInputFile">Foto de Perfil</label>
+                                                <label for="exampleInputFile">Arquivo de Perfil</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" name="InputFile">
+                                                        <input id="InputFile" type="file" class="custom-file-input"
+                                                            name="InputFile">
                                                         <label class="custom-file-label" for="exampleInputFile">Buscar
                                                             arquivo...</label>
                                                     </div>
                                                     <div class="input-group-append">
-                                                        <span class="input-group-text">Upload</span>
+                                                        <button class="input-group-text" type="button"
+                                                            id="uploadButton">Carregar</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <script>
+                                        document.getElementById('uploadButton').addEventListener('click', function() {
+                                            const imageInput = document.getElementById('InputFile');
+                                            const imageContainer = document.getElementById('imageContainer');
 
+                                            if (imageInput.files.length > 0) {
+                                                const file = imageInput.files[0];
+
+                                                if (file.type === 'image/jpeg') { // Verifica se o tipo do arquivo é JPEG (.jpg)
+                                                    const reader = new FileReader();
+
+                                                    reader.onload = function(e) {
+                                                        const img = new Image();
+                                                        img.src = e.target.result;
+                                                        img.style.maxWidth = '150px'; // Defina o tamanho máximo da imagem
+                                                        img.style.maxHeight = '150px'; // Defina o tamanho máximo da imagem
+                                                        imageContainer.innerHTML = ''; // Limpa qualquer imagem anterior
+                                                        imageContainer.appendChild(img);
+                                                    };
+
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    alert('Por favor, selecione um arquivo de imagem no formato .jpg.');
+                                                }
+                                            }
+                                        });
+
+                                        document.getElementById('userForm').addEventListener('submit', function(event) {
+                                            const imageInput = document.getElementById('InputFile');
+                                            if (imageInput.files.length > 0) {
+                                                const file = imageInput.files[0];
+                                                if (file.type !== 'image/jpeg') {
+                                                    event.preventDefault(); // Impede o envio do formulário
+                                                    alert('Por favor, selecione um arquivo de imagem no formato .jpg.');
+                                                }
+                                            }
+                                        });
+
+                                    </script>
                                 </div>
                                 <!-- /.card-body -->
-
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Registrar</button>
                                 </div>

@@ -67,8 +67,8 @@
                                                 </td>
                                                 <td align="center">
                                                     <a href="{{ route('gastos.show', ['gastos' => $gasto->id_gasto]) }}"
-                                                        class="btn btn-primary"> <i class="fa fa-eye"></i> Ver </a>
-                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-danger"
+                                                        class="btn btn-primary btn-sm"> <i class="fa fa-eye"></i> Ver </a>
+                                                    <button data-toggle="modal" data-target="#delete" class="btn btn-danger btn-sm"
                                                         onclick="deletar_modal({{ $gasto->id_gasto }}, '{{ $gasto->id_gasto }}');">
                                                         <i class="fa fa-trash"></i> Excluir </button>
 

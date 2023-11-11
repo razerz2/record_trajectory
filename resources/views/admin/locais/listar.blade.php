@@ -57,8 +57,8 @@
                                                 <td>{{ $local->nome_local }}</td>
                                                 <td align="center">
                                                     <a href="{{ route('locais.edit', ['locais' => $local->id_local]) }}"
-                                                        class="btn btn-primary"> <i class="fa fa-edit"></i> Editar </a>
-                                                        <button data-toggle="modal" data-target="#delete" class="btn btn-danger"
+                                                        class="btn btn-primary btn-sm"> <i class="fa fa-edit"></i> Editar </a>
+                                                        <button data-toggle="modal" data-target="#delete" class="btn btn-danger btn-sm"
                                                         onclick="deletar_modal({{$local->id_local }}, '{{ $local->nome_local }}');">
                                                         <i class="fa fa-trash"></i> Excluir </button>
 
